@@ -4,23 +4,45 @@ const styles = {
   navbarStyle: {
     background: 'skyblue',
     justifyContent: 'flex-end',
-    display: 'flex'
+    display: 'flex',
   },
-  activePage:{
+  activePage: {
     margin: '10px',
-    color: "goldenrod",
-    textShadow: "2px 2px 1px black, 0 0 25px maroon, 0 0 5px darkblue",
+    color: 'goldenrod',
+    textShadow: '2px 2px 1px black, 0 0 25px maroon, 0 0 5px darkblue',
   },
 };
 
-
-
-function Navbar({setCurrentPage, currentPage}) {
+function Navbar({ setCurrentPage, currentPage }) {
   return (
     <nav style={styles.navbarStyle}>
-      <a href="#"className="linkStyle"onClick={()=>{setCurrentPage("movieList")}}>Movie List</a>
-      <a href="#"className="linkStyle"onClick={()=>{setCurrentPage("home")}}>Home</a>
-      <a href="#"className="linkStyle"onClick={()=>{setCurrentPage("loginSignUp")}}>Login/Sign Up</a>
+      <a
+        href='#'
+        className='linkStyle'
+        onClick={() => {
+          setCurrentPage('movieList');
+        }}
+      >
+        Movie List
+      </a>
+      <a
+        href='#'
+        className='linkStyle'
+        onClick={() => {
+          setCurrentPage('home');
+        }}
+      >
+        Home
+      </a>
+      <a
+        href='#'
+        className='linkStyle'
+        onClick={() => {
+          setCurrentPage('loginSignUp');
+        }}
+      >
+        Login/Sign Up
+      </a>
     </nav>
   );
 }
