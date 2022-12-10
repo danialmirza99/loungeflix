@@ -1,8 +1,5 @@
 const { Schema, model } = require('mongoose');
 // const bcrypt = require('bcrypt');
-const MovieList = require('./MovieList');
-const Review = require('./Review');
-const Comment = require('./Comment');
 
 const userSchema = new Schema({
     username:{
@@ -17,7 +14,11 @@ const userSchema = new Schema({
     },
     Review: [Review.schema],
     Comment: [Comment.schema],
-    movieList: [MovieList.schema]
+   MovieList:{
+    type: Schema.Types.ObjectId,
+    ref:'MovieList',
+    req: true
+}
 });
 
 const User = mongoose.model('User', userSchema);
