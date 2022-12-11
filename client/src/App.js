@@ -1,9 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import MovieList from './pages/MovieList';
-import ReviewPage from './pages/ReviewPage';
+import ReviewPage from './pages/reviewPage';
 import Navbar from './components/Navbar';
 
 import {
@@ -42,13 +42,13 @@ function App() {
       <Router>
         <>
           <Navbar />
-          <Switch>
+          <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/movies' element={<MovieList />} />
             <Route path='/reviews' element={<ReviewPage />} />
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
-          </Switch>
+          </Routes>
         </>
       </Router>
     </ApolloProvider>
