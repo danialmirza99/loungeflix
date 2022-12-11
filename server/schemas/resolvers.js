@@ -1,14 +1,9 @@
 const { Tech, Matchup } = require('../models');
 
 const resolvers = {
-  Query: {
-   
-  },
+  Query: {},
 
-  Mutation: {
-   
-   
-  },
+  Mutation: {},
 };
 
 module.exports = resolvers;
