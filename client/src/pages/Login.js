@@ -1,6 +1,3 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
 import {
   Jumbotron,
   Container,
@@ -11,6 +8,10 @@ import {
   CardColumns,
 } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+//import { LOGIN_USER } from '../utils/mutations';
 
 const Login = () => {
   return (
