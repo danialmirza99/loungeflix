@@ -11,15 +11,23 @@ import {
   CardColumns,
 } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
+import Makima from '../assets/images/Makima.jpg'
+const styles = {
+  sectionStyles: {
+    background: `url(${Makima})`,
+    height: "900px",
+    backgroundSize: "cover",
+  }}
+
 
 const Login = () => {
   return (
-    <>
+    <section style={styles.sectionStyles}>
       <Jumbotron fluid className='text-light bg-dark'></Jumbotron>
       <Container>
         <h2></h2>
       </Container>
-    </>
+    </section>
   );
 };
 
