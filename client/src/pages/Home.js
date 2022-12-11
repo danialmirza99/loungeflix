@@ -12,12 +12,13 @@ import {
 } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 
+
 const Home = () => {
   return (
     <>
       <Jumbotron fluid className='text-light bg-dark'></Jumbotron>
       <Container>
-        <h2></h2>
+        <h2 src = ''>Test</h2>
         <div class="movies"></div>
       </Container>
     </>

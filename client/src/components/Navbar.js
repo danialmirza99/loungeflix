@@ -6,6 +6,19 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 
 //import Auth from '../utils/auth';
 
+const styles = {
+  navbarStyle: {
+    background: 'skyblue',
+    justifyContent: 'flex-end',
+    display: 'flex'
+  },
+  activePage:{
+    margin: '10px',
+    color: "goldenrod",
+    textShadow: "2px 2px 1px black, 0 0 25px maroon, 0 0 5px darkblue",
+  },
+};
+
  const MovieNavbar=()=>{
  
   return (
