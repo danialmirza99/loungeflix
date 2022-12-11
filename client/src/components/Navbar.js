@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Api } from '../utils/api'
 //import SignUpForm from './SignupForm';
 //import LoginForm from './LoginForm';
 
@@ -44,6 +45,8 @@ const styles = {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      
+      
     </>
   );
 };
