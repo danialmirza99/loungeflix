@@ -15,9 +15,10 @@ import { useMutation } from '@apollo/client';
 import Silhouette from '../assets/images/Silhouette.jpg'
 const styles = {
   sectionStyles: {
-    // background: `url(${Silhouette})`,
-    // height: "900px",
-    // backgroundSize: "cover",
+    background: `url(${Silhouette})`,
+    height: "900px",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   }}
   
 
