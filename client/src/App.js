@@ -5,7 +5,7 @@ import Login from './pages/Login';
 import MovieList from './pages/MovieList';
 import ReviewPage from './pages/reviewPage';
 import Navbar from './components/Navbar';
-
+import Signup from './pages/Signup'
 import {
   ApolloClient,
   InMemoryCache,
@@ -47,6 +47,7 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/movies' element={<MovieList />} />
             <Route path='/reviews' element={<ReviewPage />} />
+            <Route path='/signup' element={<Signup />} />
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
           </Routes>
         </>
