@@ -47,6 +47,14 @@ const handleFormSubmit = async (event) => {
 
     return (
         <Form horizontal onSubmit={handleFormSubmit}>
+            <FormGroup controlId="formHorizontalUsername">
+    <Col >
+      Username
+    </Col>
+    <Col sm={10}>
+      <FormControl type="Username" placeholder="Username" value={formState.email} onChange={handleChange}/>
+    </Col>
+  </FormGroup>
             <FormGroup controlId="formHorizontalEmail">
     <Col >
       Email

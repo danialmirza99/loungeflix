@@ -33,7 +33,7 @@ const styles = {
               </Nav.Link>
               <Nav.Link as={Link} to='/login'> Login
               </Nav.Link>
-              <Nav.Link as={Link} to='/'>Sign Up
+              <Nav.Link as={Link} to='/signup'>Sign Up
               </Nav.Link>
               <Nav.Link as={Link} to='/movies'>Movielist
               </Nav.Link>
