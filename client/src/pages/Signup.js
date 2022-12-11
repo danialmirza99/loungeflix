@@ -44,3 +44,30 @@ const handleFormSubmit = async (event) => {
       console.error(e);
     }
     };
+
+    return (
+        <Form horizontal onSubmit={handleFormSubmit}>
+            <FormGroup controlId="formHorizontalEmail">
+    <Col >
+      Email
+    </Col>
+    <Col sm={10}>
+      <FormControl type="email" placeholder="Email" value={formState.email} onChange={handleChange}/>
+    </Col>
+  </FormGroup>
+
+  <FormGroup controlId="formHorizontalPassword">
+    <Col >
+      Password
+    </Col>
+    <Col sm={10}>
+      <FormControl type="password" placeholder="Password"value={formState.password} onChange={handleChange} />
+    </Col>
+  </FormGroup>
+  <Button type='submit'>
+    Submit!
+  </Button>
+        </Form>
+    );
+};
+export default Signup;
