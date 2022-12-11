@@ -18,6 +18,7 @@ const Home = () => {
       <Jumbotron fluid className='text-light bg-dark'></Jumbotron>
       <Container>
         <h2></h2>
+        <div class="movies"></div>
       </Container>
     </>
   );

@@ -5,7 +5,7 @@ const typeDefs = gql`
     _id: ID
     username: String
     password: String
-    Review: [review]
+    reviews: [review]
     Comment: [comment]
     movieList: MovieList
   }
@@ -29,8 +29,17 @@ const typeDefs = gql`
     movie: [movie]
   }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Query {
+    users: [User]
     user(username: String!): User
+    reviews(username: String): [Review]
+    review(reviewId: ID!): Review
+    me: User
   }
 
   type Mutation {
