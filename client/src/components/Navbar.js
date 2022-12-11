@@ -10,7 +10,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
  
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+       <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
