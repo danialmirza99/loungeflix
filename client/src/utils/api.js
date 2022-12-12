@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Home } from '../pages/Home';
+import axios from 'axios'
+
+let searchValue = localStorage.getItem("searchInput");
 
 const options = {
     method: 'GET',
+    url: 'https://online-movie-database.p.rapidapi.com/auto-complete',
+    params: {q: searchValue},
     headers: {
         'X-RapidAPI-Key': '51d6e0d84cmshc0d9de2b1434d7bp126665jsn3d6cfe1721c5',
         'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com',
@@ -17,11 +23,10 @@ export default function MyComponent() {
     // this useEffect will run once
     // similar to componentDidMount()
     useEffect(() => {
-        fetch('https://online-movie-database.p.rapidapi.com/title/get-plots?tconst=tt0944947', options)
-            .then(res => res.json())
-            .then((result) => {
+        axios.request(options).then(function (result) {
                 setIsLoaded(true);
-                setItems(result.base.title);
+                setItems(result.data.d[0].l.s[0]);
+                console.log(result.data.d[0]);
             },
                 (error) => {
                     setIsLoaded(true);
@@ -41,4 +46,13 @@ export default function MyComponent() {
             </ul>
         );
     }
-}
+// axios.request(options).then(function (response) {
+//     console.log(response.data);
+// }).catch(function (error) {
+//     console.error(error);
+// setItems(response.data.d[0].l);
+// });
+ }
+
+
+
