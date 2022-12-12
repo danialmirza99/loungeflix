@@ -12,8 +12,14 @@ import {
   //ControlLabel
   
 } from 'react-bootstrap';
-
-
+import Matsuno from '../assets/images/Matsuno.jpg'
+const styles = {
+  signUpStyles: {
+    background: `url(${Matsuno})`,
+    height: "900px",
+    filter: "brightness(0.8)",
+    backgroundSize: "cover",
+  }}
 const Signup = () => {
     const [formState, setFormState] = useState({
         username: '',
@@ -46,6 +52,8 @@ const handleFormSubmit = async (event) => {
     };
 
     return (
+      <section style={styles.signUpStyles}>
+
         <Form horizontal onSubmit={handleFormSubmit}>
             <FormGroup controlId="formHorizontalUsername">
     <Col >
@@ -76,6 +84,7 @@ const handleFormSubmit = async (event) => {
     Submit!
   </Button>
         </Form>
+      </section>
     );
 };
 export default Signup;
