@@ -52,6 +52,7 @@ const handleFormSubmit = async (event) => {
 
     return (
 
+
       <section style={styles.signUpStyles}>
 
         <Form horizontal onSubmit={handleFormSubmit}>
@@ -100,6 +101,7 @@ const handleFormSubmit = async (event) => {
   <Button type='submit'>
     Signup
   </Button>
+
   
         </Form>
       </section>
