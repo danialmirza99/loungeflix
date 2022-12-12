@@ -10,12 +10,11 @@ import Logo from '../assets/images/Lounge_Flix_Logo.jpg'
 
 const styles = {
   navbarStyle: {
-    background: 'skyblue',
-    justifyContent: 'flex-end',
-    display: 'flex'
+    background: 'midnightblue',
   },
-  activePage:{
+  linkFont:{
     margin: '10px',
+    marginTop: '200px',
     color: "goldenrod",
     textShadow: "2px 2px 1px black, 0 0 25px maroon, 0 0 5px darkblue",
   },
@@ -24,31 +23,32 @@ const styles = {
  const MovieNavbar=()=>{
  
   return (
-    
+    <section>
+
     <Navbar bg='primary' variant='dark' expand='lg'>
       <Container fluid>
-          <Nav className='ml-auto'>
+          <Nav className='ml-auto' style={styles.navbarStyle}>
           <Navbar.Brand href="#home">
           <Nav.Link as={Link} to='/'>
           <img
             src= {Logo}
             width="125"
-            height="50"
+            height="75"
             className="d-inline-block align-top"
             alt="LoungeFlix logo"
-          />
+            />
           </Nav.Link>
         </Navbar.Brand>
-        <Nav.Link as={Link} to='/'>
+        <Nav.Link as={Link} to='/'style={styles.linkFont}>
           Home
         </Nav.Link>
-            <Nav.Link as={Link} to='/login'> Login
+            <Nav.Link as={Link} to='/login'style={styles.linkFont}> Login
             </Nav.Link>
-            <Nav.Link as={Link} to='/signup'>Sign Up
+            <Nav.Link as={Link} to='/signup'style={styles.linkFont}>Sign Up
             </Nav.Link>
-            <Nav.Link as={Link} to='/movies'>Movielist
+            <Nav.Link as={Link} to='/movies'style={styles.linkFont}>Movielist
             </Nav.Link>
-            <Nav.Link as={Link} to='/reviews'>Reviews
+            <Nav.Link as={Link} to='/reviews'style={styles.linkFont}>Reviews
             </Nav.Link>
             
           </Nav>
@@ -56,6 +56,7 @@ const styles = {
       </Container>
     </Navbar>
     
+    </section>
     
   
 );
