@@ -22,7 +22,7 @@ const styles = {
   }}
   
 
-const Home = () => {
+export const Home = () => {
   const [searchInput, setSearchInput] = useState('');
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -31,6 +31,7 @@ const Home = () => {
     }
     else{
       console.log(searchInput);
+      localStorage.setItem("searchInput", searchInput); 
     }
   }
   return (
