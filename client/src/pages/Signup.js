@@ -55,7 +55,7 @@ const handleFormSubmit = async (event) => {
       <section style={styles.signUpStyles}>
 
         <Form horizontal onSubmit={handleFormSubmit}>
-            <FormGroup controlId="formHorizontalUsername">
+            <Form.Group controlId="formHorizontalUsername">
     <Col >
 
       Username
