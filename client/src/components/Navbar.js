@@ -1,50 +1,65 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Api } from '../utils/api'
+import Logo from '../assets/images/Lounge_Flix_Logo.jpg'
+//import SignUpForm from './SignupForm';
+//import LoginForm from './LoginForm';
+
+//import Auth from '../utils/auth';
 
 const styles = {
   navbarStyle: {
-    background: 'skyblue',
-    justifyContent: 'flex-end',
-    display: 'flex',
+    background: 'midnightblue',
   },
-  activePage: {
+  linkFont:{
     margin: '10px',
-    color: 'goldenrod',
-    textShadow: '2px 2px 1px black, 0 0 25px maroon, 0 0 5px darkblue',
+    marginTop: '200px',
+    color: "goldenrod",
+    textShadow: "2px 2px 1px black, 0 0 25px maroon, 0 0 5px darkblue",
   },
 };
 
-function Navbar({ setCurrentPage, currentPage }) {
+ const MovieNavbar=()=>{
+ 
   return (
-    <nav style={styles.navbarStyle}>
-      <a
-        href='#'
-        className='linkStyle'
-        onClick={() => {
-          setCurrentPage('movieList');
-        }}
-      >
-        Movie List
-      </a>
-      <a
-        href='#'
-        className='linkStyle'
-        onClick={() => {
-          setCurrentPage('home');
-        }}
-      >
-        Home
-      </a>
-      <a
-        href='#'
-        className='linkStyle'
-        onClick={() => {
-          setCurrentPage('loginSignUp');
-        }}
-      >
-        Login/Sign Up
-      </a>
-    </nav>
-  );
-}
+    <section>
 
-export default Navbar;
+    <Navbar bg='primary' variant='dark' expand='lg'>
+      <Container fluid>
+          <Nav className='ml-auto' style={styles.navbarStyle}>
+          <Navbar.Brand href="#home">
+          <Nav.Link as={Link} to='/'>
+          <img
+            src= {Logo}
+            width="125"
+            height="75"
+            className="d-inline-block align-top"
+            alt="LoungeFlix logo"
+            />
+          </Nav.Link>
+        </Navbar.Brand>
+        <Nav.Link as={Link} to='/'style={styles.linkFont}>
+          Home
+        </Nav.Link>
+            <Nav.Link as={Link} to='/login'style={styles.linkFont}> Login
+            </Nav.Link>
+            <Nav.Link as={Link} to='/signup'style={styles.linkFont}>Sign Up
+            </Nav.Link>
+            <Nav.Link as={Link} to='/movies'style={styles.linkFont}>Movielist
+            </Nav.Link>
+            <Nav.Link as={Link} to='/reviews'style={styles.linkFont}>Reviews
+            </Nav.Link>
+            
+          </Nav>
+        
+      </Container>
+    </Navbar>
+    
+    </section>
+    
+  
+);
+};
+
+export default MovieNavbar;
