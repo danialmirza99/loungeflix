@@ -6,10 +6,20 @@ import MyComponent from '../utils/api';
 import Auth from '../utils/auth';
 import { useMutation } from '@apollo/client';
 import { getMovie } from '../utils/api';
+import SummerNight from '../assets/images/SummerNight.jpg'
+
+const styles = {
+  movieListStyles: {
+    background: `url(${SummerNight})`,
+    height: "900px",
+    marginTop:"-16px",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
 
 const MovieList = () => {
   return (
-    <>
+    <section style={styles.movieListStyles}>
       <Jumbotron fluid className='text-light bg-dark'></Jumbotron>
       <Container>
         <ul>
@@ -17,7 +27,7 @@ const MovieList = () => {
         </ul>
         <MyComponent />
       </Container>
-    </>
+    </section>
   );
 };
 
