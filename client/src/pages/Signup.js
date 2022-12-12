@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+
 import {
   Form,
-  FormControl,
-  FormGroup,
   Col,
   Button
   //ControlLabel
@@ -45,46 +44,66 @@ const handleFormSubmit = async (event) => {
         variables: { ...formState },
       });
 
-      Auth.login(data.addUser.token);
+      //Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
     };
 
     return (
+
       <section style={styles.signUpStyles}>
 
         <Form horizontal onSubmit={handleFormSubmit}>
             <FormGroup controlId="formHorizontalUsername">
     <Col >
+
       Username
     </Col>
     <Col sm={10}>
-      <FormControl type="Username" placeholder="Username" value={formState.email} onChange={handleChange}/>
+      <Form.Control 
+      type="username" 
+      placeholder="Username"
+      value={formState.username} 
+      name='username'
+      onChange={handleChange}/>
     </Col>
-  </FormGroup>
-            <FormGroup controlId="formHorizontalEmail">
-    <Col >
+      </Form.Group>
+      
+      <Form.Group controlId="formHorizontalEmail">
+      <Col >
       Email
-    </Col>
-    <Col sm={10}>
-      <FormControl type="email" placeholder="Email" value={formState.email} onChange={handleChange}/>
-    </Col>
-  </FormGroup>
+      </Col>
+      <Col sm={10}>
+      <Form.Control 
+      type="email" 
+      placeholder="Email" 
+      name='email' 
+      value={formState.email} 
+      onChange={handleChange}/>
+      </Col>
+  </Form.Group>
 
-  <FormGroup controlId="formHorizontalPassword">
+  <Form.Group controlId="formHorizontalPassword">
     <Col >
       Password
     </Col>
     <Col sm={10}>
-      <FormControl type="password" placeholder="Password"value={formState.password} onChange={handleChange} />
+      <Form.Control 
+      type="password" 
+      placeholder="Password" 
+      name='password' 
+      value={formState.password} 
+      onChange={handleChange} />
     </Col>
-  </FormGroup>
+  </Form.Group>
   <Button type='submit'>
-    Submit!
+    Signup
   </Button>
+  
         </Form>
       </section>
+
     );
 };
 export default Signup;
