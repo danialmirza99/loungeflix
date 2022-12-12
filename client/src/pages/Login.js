@@ -15,7 +15,7 @@ import {
 import Makima from '../assets/images/Makima.jpg'
 
 const styles = {
-  sectionStyles: {
+  logInStyles: {
     background: `url(${Makima})`,
     height: "900px",
     backgroundSize: "cover",
@@ -60,7 +60,7 @@ const styles = {
 
   
   return (
-    <Form style={styles.sectionStyles} >
+    <Form style={styles.logInStyles} >
       <Form horizontal onSubmit={handleFormSubmit}>
   <FormGroup controlId="formHorizontalEmail">
     <Col >
