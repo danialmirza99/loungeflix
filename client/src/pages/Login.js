@@ -67,7 +67,7 @@ const styles = {
       Email
     </Col>
     <Col sm={10}>
-      <FormControl type="email" placeholder="Email" value={formState.email} onChange={handleChange}/>
+      <FormControl type="email" placeholder="Email" value={formState.email} name='email' onChange={handleChange}/>
     </Col>
   </FormGroup>
 
@@ -76,11 +76,11 @@ const styles = {
       Password
     </Col>
     <Col sm={10}>
-      <FormControl type="password" placeholder="Password"value={formState.password} onChange={handleChange} />
+      <FormControl type="password" placeholder="Password"value={formState.password} name='password' onChange={handleChange} />
     </Col>
   </FormGroup>
   <Button type='submit'>
-    Submit!
+    Login
   </Button>
    
     </Form>
