@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+// import { Link } from 'react-router-dom';
+// import { useQuery } from '@apollo/client';
 
 import {
   Jumbotron,
   Container,
   Col,
   Form,
-  Button,
-  Card,
-  CardColumns,
+  // Button,
+  // Card,
+  // CardColumns,
 } from 'react-bootstrap';
-import { useMutation } from '@apollo/client';
+//import { useMutation } from '@apollo/client';
 import Silhouette from '../assets/images/Silhouette.jpg'
 const styles = {
   sectionStyles: {
@@ -19,19 +19,20 @@ const styles = {
     height: "900px",
     backgroundSize: "cover",
     backgroundPosition: "center",
-  }}
-  
+  }
+}
+
 
 export const Home = () => {
   const [searchInput, setSearchInput] = useState('');
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    if (!searchInput){
+    if (!searchInput) {
       return false;
     }
-    else{
+    else {
       console.log(searchInput);
-      localStorage.setItem("searchInput", searchInput); 
+      localStorage.setItem("searchInput", searchInput);
     }
   }
   return (
@@ -40,16 +41,16 @@ export const Home = () => {
         <Container>
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
-            <Col xs={12} md={8}>
-            <Form.Control
-              name='searchInput'
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              type='text'
-              size='lg'
-              placeholder='Select Movie'
-            />
-            </Col>
+              <Col xs={12} md={8}>
+                <Form.Control
+                  name='searchInput'
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.target.value)}
+                  type='text'
+                  size='lg'
+                  placeholder='Select Movie'
+                />
+              </Col>
             </Form.Row>
           </Form>
         </Container>
