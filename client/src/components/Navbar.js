@@ -31,7 +31,7 @@ const styles = {
     <Navbar bg='primary' variant='dark' expand='lg'>
       <Container fluid>
           <Nav className='ml-auto' style={styles.navbarStyle}>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand>
           <Nav.Link as={Link} to='/'>
           <img
             src= {Logo}

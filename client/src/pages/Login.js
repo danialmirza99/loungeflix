@@ -60,9 +60,9 @@ const styles = {
 
   
   return (
-    <Form style={styles.logInStyles} >
-      <Form horizontal onSubmit={handleFormSubmit}>
-  <FormGroup controlId="formHorizontalEmail">
+    <section style={styles.logInStyles} >
+      <Form  onSubmit={handleFormSubmit}>
+  <FormGroup controlId="formBasicEmail">
     <Col >
       Email
     </Col>
@@ -71,7 +71,7 @@ const styles = {
     </Col>
   </FormGroup>
 
-  <FormGroup controlId="formHorizontalPassword">
+  <FormGroup controlId="formBasicPassword">
     <Col >
       Password
     </Col>
@@ -84,7 +84,7 @@ const styles = {
   </Button>
    
     </Form>
-    </Form>
+    </section>
 
   );
 };

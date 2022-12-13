@@ -44,7 +44,7 @@ const handleFormSubmit = async (event) => {
         variables: { ...formState },
       });
 
-      //Auth.login(data.addUser.token);
+      Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
@@ -55,12 +55,12 @@ const handleFormSubmit = async (event) => {
 
       <section style={styles.signUpStyles}>
 
-        <Form horizontal onSubmit={handleFormSubmit}>
-            <Form.Group controlId="formHorizontalUsername">
-    <Col >
+        <Form onSubmit={handleFormSubmit}>
+            <Form.Group controlId="formBasicUsername">
+        <Col >
 
       Username
-    </Col>
+      </Col>
     <Col sm={10}>
       <Form.Control 
       type="username" 
@@ -71,7 +71,7 @@ const handleFormSubmit = async (event) => {
     </Col>
       </Form.Group>
       
-      <Form.Group controlId="formHorizontalEmail">
+      <Form.Group controlId="formBasicEmail">
       <Col >
       Email
       </Col>
@@ -85,7 +85,7 @@ const handleFormSubmit = async (event) => {
       </Col>
   </Form.Group>
 
-  <Form.Group controlId="formHorizontalPassword">
+  <Form.Group controlId="formBasicPassword">
     <Col >
       Password
     </Col>
@@ -103,7 +103,7 @@ const handleFormSubmit = async (event) => {
   </Button>
 
   
-        </Form>
+  </Form>
       </section>
 
     );
