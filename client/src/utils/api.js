@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 export default function MyComponent() {
-
     const [items, setItems] = useState([]);
 
     useEffect(() => {
@@ -13,8 +12,6 @@ export default function MyComponent() {
     })
 
     return (
-        <ul>
-            {items.map(item => <li> {item}</li>)}
-        </ul>
+        <ul>{items.map(item => <li> {item}</li>)}</ul>
     );
 }

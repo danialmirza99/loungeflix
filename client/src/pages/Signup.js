@@ -9,7 +9,6 @@ import {
   Col,
   Button
   //ControlLabel
-
 } from 'react-bootstrap';
 import Matsuno from '../assets/images/Matsuno.jpg'
 const styles = {
@@ -52,14 +51,11 @@ const Signup = () => {
   };
 
   return (
-
-
     <section style={styles.signUpStyles}>
 
       <Form onSubmit={handleFormSubmit}>
         <Form.Group controlId="formBasicUsername">
           <Col >
-
             Username
           </Col>
           <Col sm={10}>
@@ -103,10 +99,8 @@ const Signup = () => {
           Signup
         </Button>
 
-
       </Form>
     </section>
-
   );
 };
 export default Signup;

@@ -53,7 +53,7 @@ const Home = () => {
               </Col>
             </Form.Row>
           </Form>
-          <MyComponent/>
+          <MyComponent />
         </Container>
       </Jumbotron>
     </section>

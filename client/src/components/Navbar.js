@@ -62,23 +62,11 @@ const MovieNavbar = () => {
                 </Nav.Link>
                 <Nav.Link onClick={logout}>Logout</Nav.Link>
               </>
-            ) : (
-            <>
-              <Nav.Link as={Link} to='/login' style={styles.linkFont}> Login
-              </Nav.Link>
-              <Nav.Link as={Link} to='/signup' style={styles.linkFont}>Sign Up
-              </Nav.Link>
-            </>
             )}
-
           </Nav>
-
         </Container>
       </Navbar>
-
     </section>
-
-
   );
 };
 

@@ -27,9 +27,7 @@ const MovieList = () => {
     <section style={styles.movieListStyles}>
       <Jumbotron fluid className='text-light bg-dark'></Jumbotron>
       <Container>
-        <ul style={styles.textStyle}>
-          <li>MyComponent</li>
-        </ul>
+        <ul style={styles.textStyle}></ul>
         <MyComponent />
       </Container>
     </section>
