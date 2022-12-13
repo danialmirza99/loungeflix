@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Home } from '../pages/Home';
 import axios from 'axios'
 
+
 let searchValue = localStorage.getItem("searchInput");
 
 const options = {
@@ -25,8 +26,8 @@ export default function MyComponent() {
     useEffect(() => {
         axios.request(options).then(function (result) {
                 setIsLoaded(true);
-                setItems(result.data.d[0].l.s[0]);
-                console.log(result.data.d[0]);
+                setItems(result.data.d[0].l);
+                console.log(result.data);
             },
                 (error) => {
                     setIsLoaded(true);
@@ -53,6 +54,3 @@ export default function MyComponent() {
 // setItems(response.data.d[0].l);
 // });
  }
-
-
-
