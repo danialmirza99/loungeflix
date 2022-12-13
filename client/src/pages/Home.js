@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
-// import { useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import MyComponent from '../utils/api';
 
 import {
   Jumbotron,
@@ -23,7 +24,7 @@ const styles = {
 }
 
 
-export const Home = () => {
+const Home = () => {
   const [searchInput, setSearchInput] = useState('');
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -32,7 +33,6 @@ export const Home = () => {
     }
     else {
       console.log(searchInput);
-      localStorage.setItem("searchInput", searchInput);
     }
   }
   return (
@@ -53,6 +53,7 @@ export const Home = () => {
               </Col>
             </Form.Row>
           </Form>
+          <MyComponent />
         </Container>
       </Jumbotron>
     </section>
