@@ -45,7 +45,7 @@ const Signup = () => {
         variables: { ...formState },
       });
 
-      //Auth.login(data.addUser.token);
+      Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
@@ -56,8 +56,8 @@ const Signup = () => {
 
     <section style={styles.signUpStyles}>
 
-      <Form horizontal onSubmit={handleFormSubmit}>
-        <Form.Group controlId="formHorizontalUsername">
+      <Form onSubmit={handleFormSubmit}>
+        <Form.Group controlId="formBasicUsername">
           <Col >
 
             Username
@@ -72,7 +72,7 @@ const Signup = () => {
           </Col>
         </Form.Group>
 
-        <Form.Group controlId="formHorizontalEmail">
+        <Form.Group controlId="formBasicEmail">
           <Col >
             Email
           </Col>
@@ -86,7 +86,7 @@ const Signup = () => {
           </Col>
         </Form.Group>
 
-        <Form.Group controlId="formHorizontalPassword">
+        <Form.Group controlId="formBasicPassword">
           <Col >
             Password
           </Col>
@@ -106,6 +106,10 @@ const Signup = () => {
 
       </Form>
     </section>
+
+
+      </Form >
+    </section >
 
   );
 };

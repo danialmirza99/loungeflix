@@ -61,9 +61,9 @@ const Login = (props) => {
 
 
   return (
-    <Form style={styles.logInStyles} >
-      <Form horizontal onSubmit={handleFormSubmit}>
-        <FormGroup controlId="formHorizontalEmail">
+    <section style={styles.logInStyles} >
+      <Form onSubmit={handleFormSubmit}>
+        <FormGroup controlId="formBasicEmail">
           <Col >
             Email
           </Col>
@@ -72,7 +72,7 @@ const Login = (props) => {
           </Col>
         </FormGroup>
 
-        <FormGroup controlId="formHorizontalPassword">
+        <FormGroup controlId="formBasicPassword">
           <Col >
             Password
           </Col>
@@ -85,7 +85,7 @@ const Login = (props) => {
         </Button>
 
       </Form>
-    </Form>
+    </section>
 
   );
 };

@@ -21,14 +21,17 @@ const styles = {
 };
 
 const MovieNavbar = () => {
-
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
     <section>
 
       <Navbar bg='primary' variant='dark' expand='lg'>
         <Container fluid>
           <Nav className='ml-auto' style={styles.navbarStyle}>
-            <Navbar.Brand href="#home">
+            <Navbar.Brand>
               <Nav.Link as={Link} to='/'>
                 <img
                   src={Logo}
@@ -49,15 +52,23 @@ const MovieNavbar = () => {
                 </Nav.Link>
                 <Nav.Link as={Link} to='/reviews' style={styles.linkFont}>Reviews
                 </Nav.Link>
-                <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                <Nav.Link onClick={logout}>Logout</Nav.Link>
               </>
             ) : (
               <>
                 <Nav.Link as={Link} to='/login' style={styles.linkFont}> Login
                 </Nav.Link>
-                <Nav.Link as={Link} to='/signup' style={styles.linkFont}>Sign Up
+                <Nav.Link as={Link} to='/reviews' style={styles.linkFont}>Reviews
                 </Nav.Link>
+                <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
               </>
+            ) : (
+            <>
+              <Nav.Link as={Link} to='/login' style={styles.linkFont}> Login
+              </Nav.Link>
+              <Nav.Link as={Link} to='/signup' style={styles.linkFont}>Sign Up
+              </Nav.Link>
+            </>
             )}
 
           </Nav>
