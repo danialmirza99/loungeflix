@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Api } from '../utils/api'
+//import { Api } from '../utils/api'
 import Logo from '../assets/images/Lounge_Flix_Logo.jpg'
 //import SignUpForm from './SignupForm';
 //import LoginForm from './LoginForm';
@@ -12,7 +12,7 @@ const styles = {
   navbarStyle: {
     background: 'midnightblue',
   },
-  linkFont:{
+  linkFont: {
     margin: '10px',
     marginTop: '200px',
     color: "goldenrod",
@@ -20,7 +20,7 @@ const styles = {
   },
 };
 
- const MovieNavbar=()=>{
+const MovieNavbar = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
@@ -28,50 +28,58 @@ const styles = {
   return (
     <section>
 
-    <Navbar bg='primary' variant='dark' expand='lg'>
-      <Container fluid>
+      <Navbar bg='primary' variant='dark' expand='lg'>
+        <Container fluid>
           <Nav className='ml-auto' style={styles.navbarStyle}>
-          <Navbar.Brand>
-          <Nav.Link as={Link} to='/'>
-          <img
-            src= {Logo}
-            width="125"
-            height="75"
-            className="d-inline-block align-top"
-            alt="LoungeFlix logo"
-            />
-          </Nav.Link>
-        </Navbar.Brand>
-        <Nav.Link as={Link} to='/'style={styles.linkFont}>
-          Home
-        </Nav.Link>
+            <Navbar.Brand>
+              <Nav.Link as={Link} to='/'>
+                <img
+                  src={Logo}
+                  width="125"
+                  height="75"
+                  className="d-inline-block align-top"
+                  alt="LoungeFlix logo"
+                />
+              </Nav.Link>
+            </Navbar.Brand>
+            <Nav.Link as={Link} to='/' style={styles.linkFont}>
+              Home
+            </Nav.Link>
             {Auth.loggedIn() ? (
-                <>
-                  <Nav.Link as={Link} to='/movies'style={styles.linkFont}>
-                    MovieList
-                  </Nav.Link>
-                  <Nav.Link as={Link} to='/reviews'style={styles.linkFont}>Reviews
-                  </Nav.Link>
-                  <Nav.Link onClick={logout}style={styles.linkFont}>Logout</Nav.Link>
-                </>
-              ) : (
-                <>
-                <Nav.Link as={Link} to='/login'style={styles.linkFont}> Login
+              <>
+                <Nav.Link as={Link} to='/movies' style={styles.linkFont}>
+                  MovieList
                 </Nav.Link>
-                <Nav.Link as={Link} to='/signup'style={styles.linkFont}>Sign Up
+                <Nav.Link as={Link} to='/reviews' style={styles.linkFont}>Reviews
                 </Nav.Link>
-                </>
-              )}
-            
+                <Nav.Link onClick={logout} style={styles.linkFont}>Logout</Nav.Link>
+              </>
+            ) : (
+              <>
+                <Nav.Link as={Link} to='/login' style={styles.linkFont}> Login
+                </Nav.Link>
+                <Nav.Link as={Link} to='/reviews' style={styles.linkFont}>Reviews
+                </Nav.Link>
+                <Nav.Link onClick={logout}>Logout</Nav.Link>
+              </>
+            ) : (
+            <>
+              <Nav.Link as={Link} to='/login' style={styles.linkFont}> Login
+              </Nav.Link>
+              <Nav.Link as={Link} to='/signup' style={styles.linkFont}>Sign Up
+              </Nav.Link>
+            </>
+            )}
+
           </Nav>
-        
-      </Container>
-    </Navbar>
-    
+
+        </Container>
+      </Navbar>
+
     </section>
-    
-  
-);
+
+
+  );
 };
 
 export default MovieNavbar;
