@@ -27,7 +27,7 @@ export default function MyComponent() {
         axios.request(options).then(function (result) {
                 setIsLoaded(true);
                 setItems(result.data.d[0].l);
-                console.log(result.data.d[0]);
+                console.log(result.data);
             },
                 (error) => {
                     setIsLoaded(true);
