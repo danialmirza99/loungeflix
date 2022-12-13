@@ -47,20 +47,28 @@ const MovieNavbar = () => {
             </Nav.Link>
             {Auth.loggedIn() ? (
               <>
-                <Nav.Link as={Link} to='/movies'>
+                <Nav.Link as={Link} to='/movies' style={styles.linkFont}>
                   MovieList
+                </Nav.Link>
+                <Nav.Link as={Link} to='/reviews' style={styles.linkFont}>Reviews
+                </Nav.Link>
+                <Nav.Link onClick={logout} style={styles.linkFont}>Logout</Nav.Link>
+              </>
+            ) : (
+              <>
+                <Nav.Link as={Link} to='/login' style={styles.linkFont}> Login
                 </Nav.Link>
                 <Nav.Link as={Link} to='/reviews' style={styles.linkFont}>Reviews
                 </Nav.Link>
                 <Nav.Link onClick={logout}>Logout</Nav.Link>
               </>
             ) : (
-              <>
-                <Nav.Link as={Link} to='/login' style={styles.linkFont}> Login
-                </Nav.Link>
-                <Nav.Link as={Link} to='/signup' style={styles.linkFont}>Sign Up
-                </Nav.Link>
-              </>
+            <>
+              <Nav.Link as={Link} to='/login' style={styles.linkFont}> Login
+              </Nav.Link>
+              <Nav.Link as={Link} to='/signup' style={styles.linkFont}>Sign Up
+              </Nav.Link>
+            </>
             )}
 
           </Nav>
