@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import MyComponent from '../utils/api';
 
 let title = sessionStorage.getItem("title");
 let actors = sessionStorage.getItem("actors");
@@ -32,6 +33,7 @@ const styles = {
 
 function MovieCard() {
     return (
+        
       <Card style={styles.cardStyles}>
         <Card.Img variant="top" src={poster} style={styles.imgStyle} />
         <Card.Body>
@@ -42,6 +44,7 @@ function MovieCard() {
           <Card.Text>
             Plot: {plot}            
           </Card.Text>
+          <MyComponent />
           <Button variant="primary">Reviews</Button>
         </Card.Body>
       </Card>
