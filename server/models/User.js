@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
   username: {
@@ -7,20 +7,38 @@ const userSchema = new Schema({
     required: true,
     trim: true,
   },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, 'Invalid email address!'],
+  },
   password: {
     type: String,
     required: true,
     minlength: 8,
   },
-  Review: [Review.schema],
-  Comment: [Comment.schema],
+  //Review: [Review.schema],
+  //Comment: [Comment.schema],
   MovieList: {
     type: Schema.Types.ObjectId,
     ref: 'MovieList',
     req: true,
   },
 });
+userSchema.pre('save', async function (next) {
+  if (this.isNew || this.isModified('password')) {
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(this.password, saltRounds);
+  }
 
-const User = mongoose.model('User', userSchema);
+  next();
+});
+
+userSchema.methods.isCorrectPassword = async function (password) {
+  return bcrypt.compare(password, this.password);
+};
+
+const User = model('User', userSchema);
 
 module.exports = User;
