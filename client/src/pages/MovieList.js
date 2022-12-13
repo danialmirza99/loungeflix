@@ -15,14 +15,19 @@ const styles = {
     marginTop:"-16px",
     backgroundSize: "cover",
     backgroundPosition: "center",
-  }}
+  },
+  textStyle: {
+    color: "gold",
+    textShadow: "2px 2px 1px black, 0 0 25px maroon, 0 0 5px darkblue"
+  },
+}
 
 const MovieList = () => {
   return (
     <section style={styles.movieListStyles}>
       <Jumbotron fluid className='text-light bg-dark'></Jumbotron>
       <Container>
-        <ul>
+        <ul style={styles.textStyle}>
           <li>MyComponent</li>
         </ul>
         <MyComponent />
