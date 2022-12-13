@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+
 export default function MyComponent() {
 
     const [items, setItems] = useState([]);
@@ -9,6 +10,10 @@ export default function MyComponent() {
             .then(res => res.json())
             .then((result) => {
                 setItems([result.Title, result.Actors, result.Plot, result.Poster]);
+                sessionStorage.setItem("title", result.Title);
+                sessionStorage.setItem("actors", result.Actors);
+                sessionStorage.setItem("plot", result.Plot);
+                sessionStorage.setItem("poster", result.Poster);
             })
     })
 

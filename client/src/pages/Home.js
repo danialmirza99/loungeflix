@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import MyComponent from '../utils/api';
+import MovieCard from '../components/Movie';
 
 import {
   Jumbotron,
@@ -53,8 +53,8 @@ const Home = () => {
               </Col>
             </Form.Row>
           </Form>
-          <MyComponent/>
         </Container>
+        <MovieCard />
       </Jumbotron>
     </section>
   );
