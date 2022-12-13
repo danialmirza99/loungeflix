@@ -6,9 +6,9 @@ const movieListSchema = new Schema({
     ref: 'User',
     required: true,
   },
-  Movie: [Movie.schema],
+ // Movie: [Movie.schema],
 });
 
-const MovieList = mongoose.model('MovieList', movieListSchema);
+const MovieList = model('MovieList', movieListSchema);
 
 module.exports = MovieList;

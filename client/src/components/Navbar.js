@@ -21,7 +21,10 @@ const styles = {
 };
 
  const MovieNavbar=()=>{
- 
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
     <section>
 
@@ -49,7 +52,7 @@ const styles = {
                   </Nav.Link>
                   <Nav.Link as={Link} to='/reviews'style={styles.linkFont}>Reviews
                   </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  <Nav.Link onClick={logout}>Logout</Nav.Link>
                 </>
               ) : (
                 <>
