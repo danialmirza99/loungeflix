@@ -58,9 +58,8 @@ const MovieNavbar = () => {
               <>
                 <Nav.Link as={Link} to='/login' style={styles.linkFont}> Login
                 </Nav.Link>
-                <Nav.Link as={Link} to='/reviews' style={styles.linkFont}>Reviews
+                <Nav.Link as={Link} to='/signup' style={styles.linkFont}>Signup
                 </Nav.Link>
-                <Nav.Link onClick={logout}>Logout</Nav.Link>
               </>
             )}
           </Nav>
