@@ -16,10 +16,5 @@ export default function MyComponent() {
                 sessionStorage.setItem("poster", result.Poster);
             })
     })
-
-    return (
-        <ul>
-            {items.map(item => <li> {item}</li>)}
-        </ul>
-    );
+    return (null);
 }
