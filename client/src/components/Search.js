@@ -30,28 +30,36 @@ const SearchMovies = () => {
     if (!searchInput) {
       return false;
     }
+    console.log(searchInput);
 
+    
+    
     try {
+      var val = {};
       const response = await fetch(
-        `https://www.omdbapi.com/?t=${searchInput}&apikey=c4e6157a`
-      );
+        `https://www.omdbapi.com/?t=${searchInput}&apikey=c4e6157a`)
+        .then(res => res.json())
+        .then((result)=> {
+          val = result;
+        });
+        console.log(val);
+      // if (!response.ok) {
+      //   throw new Error('something went wrong!');
+      // }
 
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
+      // const  items  = await response.json();
 
-      const { items } = await response.json();
-
-      const movieData = items.map((movie) => ({
-        movieId: movie.imdbID,
-        actors: movie.Actors,
-        title: movie.Title,
-        plot: movie.Plot,
-        poster: movie.Poster,
-      }));
+      const movieData = {
+        movieId: val.imdbID,
+        actors: val.Actors,
+        title: val.Title,
+        plot: val.Plot,
+        poster: val.Poster,
+      };
+      console.log(movieData);
 
       setSearchedMovies(movieData);
-      console.log("Testing: " + movieData.actors);
+      // console.log("Testing: " + items);
       setSearchInput('');
     } catch (err) {
       console.error(err);
