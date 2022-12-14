@@ -9,10 +9,6 @@ let actors = sessionStorage.getItem("actors");
 let plot = sessionStorage.getItem("plot");
 let poster = sessionStorage.getItem("poster");
 
-console.log(title);
-console.log(actors);
-console.log(plot);
-console.log(poster);
 
 const styles = {
     cardStyles: {
@@ -32,6 +28,7 @@ const styles = {
   }
 
 function MovieCard() {
+
     return (
         
       <Card style={styles.cardStyles}>
