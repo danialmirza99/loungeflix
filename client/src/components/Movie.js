@@ -30,7 +30,6 @@ const styles = {
 function MovieCard() {
 
     return (
-        
       <Card style={styles.cardStyles}>
         <Card.Img variant="top" src={poster} style={styles.imgStyle} />
         <Card.Body>

@@ -19,7 +19,6 @@ const userSchema = new Schema({
     minlength: 8,
   },
   //Review: [Review.schema],
-  //Comment: [Comment.schema],
   MovieList: {
     type: Schema.Types.ObjectId,
     ref: 'MovieList',

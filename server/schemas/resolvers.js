@@ -1,4 +1,4 @@
-const { User, Movie, Review, Comment, MovieList  } = require('../models');
+const { User, Movie, Review, MovieList  } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
