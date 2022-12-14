@@ -22,3 +22,20 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const SAVE_MOVIE = gql`
+mutation saveMovie($newMovie: movieInput!) {
+  saveMovie(newMovie: $newMovie) {
+    _id
+    username
+    email
+    savedMovies {
+      movieId
+      title
+      actors
+      plot
+      poster
+    }
+  }
+}
+`;
