@@ -37,11 +37,14 @@ const Home = () => {
     if (!searchInput) {
       return false;
     }
-    fetch(`http://www.omdbapi.com/?t=${searchInput}&apikey=c4e6157a`)
-      .then(res => res.json())
-      .then((result) => {
-        setItems([result.Title, result.Actors, result.Plot, result.Poster]);
-      })
+    
+    sessionStorage.setItem("searchValue", searchInput);
+
+    // fetch(`http://www.omdbapi.com/?t=${searchInput}&apikey=c4e6157a`)
+    //   .then(res => res.json())
+    //   .then((result) => {
+    //     setItems([result.Title, result.Actors, result.Plot, result.Poster]);
+    //   })
   };
 
   return (

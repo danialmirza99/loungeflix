@@ -21,7 +21,6 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ _id: context.user._id}).populate('reviews');
       }
-      // throw new AuthenticationError('You need to be logged in!'); // auth error check
     },
   },
 
