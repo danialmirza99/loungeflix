@@ -33,7 +33,7 @@ const SearchMovies = () => {
 
     try {
       const response = await fetch(
-        `http://www.omdbapi.com/?t=${searchInput}&apikey=c4e6157a`
+        `https://www.omdbapi.com/?t=${searchInput}&apikey=c4e6157a`
       );
 
       if (!response.ok) {
