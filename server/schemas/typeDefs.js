@@ -6,13 +6,7 @@ const typeDefs = gql`
     username: String
     password: String
     reviews: [Review]
-    Comment: [Comment]
     movieList: movieList
-  }
-  type Comment {
-    text: String
-    user: User
-    review: Review
   }
   type Movie {
     title: String
