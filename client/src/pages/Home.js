@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react';
 // import { test } from '../utils/api';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import MovieCard from '../components/Movie';
+import SavedMovies from '../components/Movie';
+import SearchMovies from '../components/Search';
 
 import {
   Jumbotron,
@@ -50,7 +51,7 @@ const Home = () => {
   return (
     <section style={styles.sectionStyles}>
       <Jumbotron fluid className='text-light bg-dark'>
-        <Container>
+        {/* <Container>
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
               <Col xs={12} md={8}>
@@ -65,13 +66,14 @@ const Home = () => {
               </Col>
             </Form.Row>
           </Form>
-        </Container>
-        <MovieCard />
+        </Container> */}
+        <SearchMovies />
+        {/* <SavedMovies /> */}
       </Jumbotron>
 
-      <Container>
+      {/* <Container>
         <ul>{items.map(item => <li> {item}</li>)}</ul>
-      </Container>
+      </Container> */}
     </section>
   );
 };

@@ -7,6 +7,7 @@ import Movie from '../utils/api';
 // import { useMutation } from '@apollo/client';
 // import { getMovie } from '../utils/api';
 import SummerNight from '../assets/images/SummerNight.jpg'
+import SavedMovies from '../components/Movie';
 
 const styles = {
   movieListStyles: {
@@ -28,7 +29,7 @@ const MovieList = () => {
       <Jumbotron fluid className='text-light bg-dark'></Jumbotron>
       <Container>
         <ul style={styles.textStyle}></ul>
-        <Movie />
+        <SavedMovies />
       </Container>
     </section>
   );
