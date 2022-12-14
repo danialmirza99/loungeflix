@@ -62,15 +62,10 @@ const MovieNavbar = () => {
                 </Nav.Link>
               </>
             )}
-
           </Nav>
-
         </Container>
       </Navbar>
-
     </section>
-
-
   );
 };
 

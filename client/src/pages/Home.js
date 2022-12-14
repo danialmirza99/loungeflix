@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+// import { Link } from 'react-router-dom';
+// import { useQuery } from '@apollo/client';
+// import { test } from '../utils/api';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import MovieCard from '../components/Movie';
@@ -12,7 +15,7 @@ import {
   // Card,
   // CardColumns,
 } from 'react-bootstrap';
-//import { useMutation } from '@apollo/client';
+
 import Silhouette from '../assets/images/Silhouette.jpg'
 const styles = {
   sectionStyles: {
@@ -23,18 +26,24 @@ const styles = {
   }
 }
 
-
 const Home = () => {
+  //const [searchedMovies, setSearchedMovies] = useState([]);
+  const [items, setItems] = useState([]);
   const [searchInput, setSearchInput] = useState('');
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
     if (!searchInput) {
       return false;
     }
-    else {
-      console.log(searchInput);
-    }
-  }
+    fetch(`http://www.omdbapi.com/?t=${searchInput}&apikey=c4e6157a`)
+      .then(res => res.json())
+      .then((result) => {
+        setItems([result.Title, result.Actors, result.Plot, result.Poster]);
+      })
+  };
+
   return (
     <section style={styles.sectionStyles}>
       <Jumbotron fluid className='text-light bg-dark'>
@@ -56,12 +65,12 @@ const Home = () => {
         </Container>
         <MovieCard />
       </Jumbotron>
+
+      <Container>
+        <ul>{items.map(item => <li> {item}</li>)}</ul>
+      </Container>
     </section>
   );
 };
 
 export default Home;
-
-
-
-

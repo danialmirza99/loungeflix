@@ -56,10 +56,6 @@ const Login = (props) => {
     });
   };
 
-
-
-
-
   return (
     <section style={styles.logInStyles} >
       <Form onSubmit={handleFormSubmit}>
@@ -86,7 +82,6 @@ const Login = (props) => {
 
       </Form>
     </section>
-
   );
 };
 
