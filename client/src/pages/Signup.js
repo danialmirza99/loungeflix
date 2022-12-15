@@ -97,10 +97,10 @@ const Signup = () => {
               value={formState.password}
               onChange={handleChange} />
           </Col>
-        </Form.Group>
-        <Button type='submit'>
+          <Button style = {styles.formStyles} type='submit'>
           Signup
         </Button>
+        </Form.Group>
 
       </Form>
     </section>
