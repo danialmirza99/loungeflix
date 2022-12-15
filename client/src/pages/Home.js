@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 // import { test } from '../utils/api';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import SavedMovies from '../components/Movie';
 import SearchMovies from '../components/Search';
 
 import {
