@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 // import { test } from '../utils/api';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import SavedMovies from '../components/Movie';
 import SearchMovies from '../components/Search';
 
 import {
@@ -24,6 +23,7 @@ const styles = {
     height: "900px",
     backgroundSize: "cover",
     backgroundPosition: "center",
+    marginTop: "-20px"
   }
 }
 
