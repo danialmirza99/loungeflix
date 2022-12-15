@@ -12,6 +12,7 @@ const styles = {
   },
   cardStyles: {
     width: '350px',
+    height: '600px',
     margin: '100px',
     borderStyle: 'solid',
     borderColor: 'red',
@@ -35,8 +36,9 @@ const styles = {
 const Home = () => {
   const [searchedMovies, setSearchedMovies] = useState({});
   const [searchInput, setSearchInput] = useState('');
-  console.log(searchInput)
-  console.log(searchedMovies)
+  const [reviewShow, setReview] = useState(false)
+  const [reviewInput, setReviewInput] = useState('')
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -50,6 +52,9 @@ const Home = () => {
       })
     setSearchInput('');
   };
+
+  const reviewHandle = () => { setReview(true) }
+  const reviewHandle2 = () => { setReview(false) }
 
   return (
     <section style={styles.sectionStyles}>
@@ -83,11 +88,11 @@ const Home = () => {
           <h2>
             {searchedMovies.title
               ? `Viewing results for ${searchedMovies.title}`
-              : 'Search for a movie to begin'}
+              : 'Search for a movie to begin.'}
           </h2>
           <CardColumns>
             {!searchedMovies.title
-              ? ''
+              ? null
               : <section>
                 <Card style={styles.cardStyles}>
                   <Card.Img variant='top' src={searchedMovies.poster} style={styles.imgStyle} />
@@ -99,13 +104,32 @@ const Home = () => {
                     <Card.Text>
                       Plot: {searchedMovies.plot}
                     </Card.Text>
-                    <Button href='reviews' variant='primary' style={styles.linkFont}>Reviews</Button>
+                    <Button href='' variant='primary' style={styles.linkFont} onClick={reviewHandle}>Reviews</Button>
+                    {reviewShow
+                      ? <Form.Row>
+                        <Col xs={12} md={8}>
+                          <Form.Control
+                            name='reviewInput'
+                            value={reviewInput}
+                            onChange={(e) => { setReviewInput(e.target.value); reviewHandle2() }}
+                            type='text'
+                            size='lg'
+                            placeholder='Add your review here.'
+                          />
+                        </Col>
+                        <Col xs={12} md={4}>
+                          <Button type='submit' variant='success' size='lg'>
+                            Submit Review
+                          </Button>
+                        </Col>
+                      </Form.Row>
+                      : null
+                    }
+                    <Card.Text>
+                      Review: {reviewInput}
+                    </Card.Text>
                   </Card.Body>
                 </Card>
-                <div
-                  className='modal show' style={styles.modalStyles}>
-                  {/* Need to generate the modal in the middle of the page when the Review Button is pressed */}
-                </div>
               </section>
             }
           </CardColumns>
