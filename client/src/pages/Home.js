@@ -24,6 +24,7 @@ const styles = {
     height: "900px",
     backgroundSize: "cover",
     backgroundPosition: "center",
+    marginTop: "-20px"
   }
 }
 
