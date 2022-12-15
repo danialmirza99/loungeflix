@@ -27,7 +27,7 @@ const styles = {
   },
   linkFont: {
     margin: '10px',
-    marginTop: '200px',
+    marginTop: '20px',
     color: 'goldenrod',
     textShadow: '2px 2px 1px black, 0 0 25px maroon, 0 0 5px darkblue',
   },
@@ -51,6 +51,7 @@ const Home = () => {
         setSearchedMovies({ title: result.Title, actors: result.Actors, plot: result.Plot, poster: result.Poster })
       })
     setSearchInput('');
+    setReviewInput('');
   };
 
   const handleReviewSubmit = (event) => {
