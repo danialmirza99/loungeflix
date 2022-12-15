@@ -1,44 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
-import Auth from '../utils/auth';
-import { saveMovieIds, getSavedMovieIds } from '../utils/localStorage';
-import { useMutation } from '@apollo/client';
-import { SAVE_MOVIE } from '../utils/mutations';
 
 import Silhouette from '../assets/images/Silhouette.jpg'
 const styles = {
   sectionStyles: {
     background: `url(${Silhouette})`,
-    height: "900px",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    marginTop: "-20px"
+    height: '900px',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    marginTop: '-20px'
   },
   cardStyles: {
-    width: "350px",
-    margin: "100px",
-    borderStyle: "solid",
-    borderColor: "red",
-    textAlign: "center",
-    marginBottom: "10px",
+    width: '350px',
+    margin: '100px',
+    borderStyle: 'solid',
+    borderColor: 'red',
+    textAlign: 'center',
+    marginBottom: '10px',
   },
   imgStyle: {
-    maxWidth: "50%",
-    height: "auto",
-    marginBottom: "10px",
-    marginTop: "10px"
+    maxWidth: '50%',
+    height: 'auto',
+    marginBottom: '10px',
+    marginTop: '10px'
   }
 }
 
 const Home = () => {
-  const [searchedMovies, setSearchedMovies] = useState([]);
+  const [searchedMovies, setSearchedMovies] = useState({});
   const [searchInput, setSearchInput] = useState('');
-  // const [savedMovieIds, setSavedMovieIds] = useState(getSavedMovieIds());
-  // const [saveMovie] = useMutation(SAVE_MOVIE);
-
-  // useEffect(() => {
-  //   return () => saveMovieIds(savedMovieIds);
-  // });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -46,31 +36,15 @@ const Home = () => {
     if (!searchInput)
       return false;
 
-    try {
-      var val = {};
-      const response = await fetch(
-        `https://www.omdbapi.com/?t=${searchInput}&apikey=c4e6157a`)
-        .then(res => res.json())
-        .then((result) => {
-          val = result;
-        });
-      console.log(val);
+    fetch(`http://www.omdbapi.com/?t=${searchInput}&apikey=c4e6157a`)
+      .then(res => res.json())
+      .then((result) => {
+        setSearchedMovies({ title: result.Title, actors: result.Actors, plot: result.Plot, poster: result.Poster })
+      })
 
-      const movieData = {
-        movieId: val.imdbID,
-        actors: val.Actors,
-        title: val.Title,
-        plot: val.Plot,
-        poster: val.Poster,
-      };
-
-      setSearchedMovies(movieData);
-      console.log(movieData);
-      setSearchInput('');
-    } catch (err) {
-      console.error(err);
-    }
+    setSearchInput('');
   };
+
   return (
     <section style={styles.sectionStyles}>
       <Jumbotron fluid className='text-light bg-dark'>
@@ -110,7 +84,7 @@ const Home = () => {
               ? 'No movie exists'
               : <section>
                 <Card style={styles.cardStyles}>
-                  <Card.Img variant="top" src={searchedMovies.poster} style={styles.imgStyle} />
+                  <Card.Img variant='top' src={searchedMovies.poster} style={styles.imgStyle} />
                   <Card.Body>
                     <Card.Title>{searchedMovies.title}</Card.Title>
                     <Card.Text>
@@ -119,11 +93,11 @@ const Home = () => {
                     <Card.Text>
                       Plot: {searchedMovies.plot}
                     </Card.Text>
-                    <Button href="google.com" variant="primary">Reviews</Button>
+                    <Button href='google.com' variant='primary'>Reviews</Button>
                   </Card.Body>
                 </Card>
                 <div
-                  className="modal show" style={styles.modalStyles}>
+                  className='modal show' style={styles.modalStyles}>
                   {/* Need to generate the modal in the middle of the page when the Review Button is pressed */}
                 </div>
               </section>
