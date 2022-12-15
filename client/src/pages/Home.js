@@ -45,7 +45,7 @@ const Home = () => {
     if (!searchInput)
       return false;
 
-    fetch(`http://www.omdbapi.com/?t=${searchInput}&apikey=c4e6157a`)
+    fetch(`https://www.omdbapi.com/?t=${searchInput}&apikey=c4e6157a`)
       .then(result => result.json())
       .then(result => {
         setSearchedMovies({ title: result.Title, actors: result.Actors, plot: result.Plot, poster: result.Poster })
