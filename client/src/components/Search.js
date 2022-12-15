@@ -1,53 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
-
 import Auth from '../utils/auth';
-
 import { saveMovieIds, getSavedMovieIds } from '../utils/localStorage';
 import { useMutation } from '@apollo/client';
 import { SAVE_MOVIE } from '../utils/mutations';
 
 const SearchMovies = () => {
-
   const [searchedMovies, setSearchedMovies] = useState([]);
-
   const [searchInput, setSearchInput] = useState('');
-
-
   const [savedMovieIds, setSavedMovieIds] = useState(getSavedMovieIds());
-
-
   const [saveMovie] = useMutation(SAVE_MOVIE);
 
   useEffect(() => {
     return () => saveMovieIds(savedMovieIds);
   });
 
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    if (!searchInput) {
+    if (!searchInput)
       return false;
-    }
-    console.log(searchInput);
 
-    
-    
     try {
       var val = {};
       const response = await fetch(
         `https://www.omdbapi.com/?t=${searchInput}&apikey=c4e6157a`)
         .then(res => res.json())
-        .then((result)=> {
+        .then((result) => {
           val = result;
         });
-        console.log(val);
-      // if (!response.ok) {
-      //   throw new Error('something went wrong!');
-      // }
-
-      // const  items  = await response.json();
+      console.log(val);
 
       const movieData = {
         movieId: val.imdbID,
@@ -63,48 +45,40 @@ const SearchMovies = () => {
     } catch (err) {
       console.error(err);
     }
-
   };
 
+  // const handleSaveMovie = async (movieId) => {
+  //   const movieToSave = searchedMovies.find((movie) => movie.movieId === movieId);
+  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-  const handleSaveMovie = async (movieId) => {
+  //   if (!token)
+  //     return false;
 
-    const movieToSave = searchedMovies.find((movie) => movie.movieId === movieId);
+  //   try {
 
+  //     const { data } = await saveMovie({ variables: { newMovie: { ...movieToSave } }, });
 
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+  //     setSavedMovieIds([...savedMovieIds, movieToSave.movieId]);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
 
-    if (!token) {
-      return false;
-    }
-
-    try {
-
-      const { data } = await saveMovie({
-        variables: { newMovie: { ...movieToSave } },
-      });
-
-      setSavedMovieIds([...savedMovieIds, movieToSave.movieId]);
-    } catch (err) {
-      console.error(err);
-    }
-    
-  };
+  // };
 
   const styles = {
     cardStyles: {
-        width: "350px",
-        margin: "100px",
-        borderStyle: "solid",
-        borderColor: "red",
-        textAlign: "center",
-        marginBottom: "10px",
+      width: "350px",
+      margin: "100px",
+      borderStyle: "solid",
+      borderColor: "red",
+      textAlign: "center",
+      marginBottom: "10px",
     },
     imgStyle: {
-        maxWidth: "50%",
-        height: "auto",
-        marginBottom: "10px",
-        marginTop: "10px"
+      maxWidth: "50%",
+      height: "auto",
+      marginBottom: "10px",
+      marginTop: "10px"
     }
   }
 
@@ -142,28 +116,28 @@ const SearchMovies = () => {
             : 'Search for a movie to begin'}
         </h2>
         <CardColumns>
-        {searchedMovies.movie
+          {searchedMovies.movie
             ? 'No movie exists'
-            :  <section>
-            <Card style={styles.cardStyles}>
-            <Card.Img variant="top" src={searchedMovies.poster} style={styles.imgStyle} />
-            <Card.Body>
-              <Card.Title>{searchedMovies.title}</Card.Title>
-              <Card.Text>
-                Actors: {searchedMovies.actors}            
-              </Card.Text>
-              <Card.Text>
-                Plot: {searchedMovies.plot}            
-              </Card.Text>
-              <Button href="google.com" variant="primary">Reviews</Button>
-            </Card.Body>
-          </Card>
-          <div
-          className="modal show" style={styles.modalStyles}>
-            {/* Need to generate the modal in the middle of the page when the Review Button is pressed */}
-        </div>
-          </section>
-              }
+            : <section>
+              <Card style={styles.cardStyles}>
+                <Card.Img variant="top" src={searchedMovies.poster} style={styles.imgStyle} />
+                <Card.Body>
+                  <Card.Title>{searchedMovies.title}</Card.Title>
+                  <Card.Text>
+                    Actors: {searchedMovies.actors}
+                  </Card.Text>
+                  <Card.Text>
+                    Plot: {searchedMovies.plot}
+                  </Card.Text>
+                  <Button href="google.com" variant="primary">Reviews</Button>
+                </Card.Body>
+              </Card>
+              <div
+                className="modal show" style={styles.modalStyles}>
+                {/* Need to generate the modal in the middle of the page when the Review Button is pressed */}
+              </div>
+            </section>
+          }
         </CardColumns>
       </Container>
     </>
