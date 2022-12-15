@@ -36,7 +36,7 @@ const styles = {
 const Home = () => {
   const [searchedMovies, setSearchedMovies] = useState({});
   const [searchInput, setSearchInput] = useState('');
-  const [reviewShow, setReview] = useState(false)
+  const [reviewShow, setReview] = useState(true)
   const [reviewInput, setReviewInput] = useState('')
 
   const handleFormSubmit = async (event) => {
@@ -52,10 +52,13 @@ const Home = () => {
       })
     setSearchInput('');
     setReviewInput('');
+    setReview(true);
   };
 
-  const reviewHandle = () => { setReview(true) }
-  const reviewHandle2 = () => { setReview(false) }
+  const handleReviewSubmit = (event) => {
+    event.preventDefault();
+    setReview(false)
+  }
 
   return (
     <section style={styles.sectionStyles}>
@@ -105,27 +108,28 @@ const Home = () => {
                     <Card.Text>
                       Plot: {searchedMovies.plot}
                     </Card.Text>
-                    <Button href='' variant='primary' style={styles.linkFont} onClick={reviewHandle}>Reviews</Button>
-                    {reviewShow
-                      ? <Form.Row>
-                        <Col xs={12} md={8}>
-                          <Form.Control
-                            name='reviewInput'
-                            value={reviewInput}
-                            onChange={(e) => { setReviewInput(e.target.value); reviewHandle2() }}
-                            type='text'
-                            size='lg'
-                            placeholder='Add your review here.'
-                          />
-                        </Col>
-                        <Col xs={12} md={4}>
-                          <Button type='submit' variant='success' size='lg'>
-                            Submit Review
-                          </Button>
-                        </Col>
-                      </Form.Row>
-                      : null
-                    }
+                    <Form onSubmit={handleReviewSubmit}>
+                      {reviewShow
+                        ? <Form.Row>
+                          <Col xs={12} md={8}>
+                            <Form.Control
+                              name='reviewInput'
+                              value={reviewInput}
+                              onChange={(e) => { setReviewInput(e.target.value) }}
+                              type='text'
+                              size='lg'
+                              placeholder='Add your review here.'
+                            />
+                          </Col>
+                          <Col xs={12} md={4}>
+                            <Button type='submit' variant='success' size='lg'>
+                              Submit Review
+                            </Button>
+                          </Col>
+                        </Form.Row>
+                        : null
+                      }
+                    </Form>
                     <Card.Text>
                       Review: {reviewInput}
                     </Card.Text>
