@@ -56,15 +56,14 @@ const SearchMovies = () => {
         plot: val.Plot,
         poster: val.Poster,
       };
-      console.log(movieData);
 
       setSearchedMovies(movieData);
-      // console.log("Testing: " + items);
+      console.log(movieData);
       setSearchInput('');
     } catch (err) {
       console.error(err);
     }
-    
+
   };
 
 
@@ -92,7 +91,22 @@ const SearchMovies = () => {
     
   };
 
-  
+  const styles = {
+    cardStyles: {
+        width: "350px",
+        margin: "100px",
+        borderStyle: "solid",
+        borderColor: "red",
+        textAlign: "center",
+        marginBottom: "10px",
+    },
+    imgStyle: {
+        maxWidth: "50%",
+        height: "auto",
+        marginBottom: "10px",
+        marginTop: "10px"
+    }
+  }
 
   return (
     <>
@@ -123,35 +137,33 @@ const SearchMovies = () => {
 
       <Container>
         <h2>
-          {searchedMovies.length
+          {searchedMovies.movie
             ? `Viewing ${searchedMovies.length} results:`
             : 'Search for a movie to begin'}
         </h2>
         <CardColumns>
-          {searchedMovies.map((movie) => {
-            return (
-              <Card key={movie.movieId} border='dark'>
-                {movie.poster ? (
-                  <Card.Img src={movie.poster} alt={`The cover for ${movie.title}`} variant='top' />
-                ) : null}
-                <Card.Body>
-                  <Card.Title>{movie.title}</Card.Title>
-                  <p className='small'>Actors: {movie.actors}</p>
-                  <Card.Text>{movie.plot}</Card.Text>
-                  {Auth.loggedIn() && (
-                    <Button
-                      disabled={savedMovieIds?.some((savedMovieId) => savedMovieId === movie.movieId)}
-                      className='btn-block btn-info'
-                      onClick={() => handleSaveMovie(movie.movieId)}>
-                      {savedMovieIds?.some((savedMovieId) => savedMovieId === movie.movieId)
-                        ? 'This movie has already been saved!'
-                        : 'Save this Movie!'}
-                    </Button>
-                  )}
-                </Card.Body>
-              </Card>
-            );
-          })}
+        {searchedMovies.movie
+            ? 'No movie exists'
+            :  <section>
+            <Card style={styles.cardStyles}>
+            <Card.Img variant="top" src={searchedMovies.poster} style={styles.imgStyle} />
+            <Card.Body>
+              <Card.Title>{searchedMovies.title}</Card.Title>
+              <Card.Text>
+                Actors: {searchedMovies.actors}            
+              </Card.Text>
+              <Card.Text>
+                Plot: {searchedMovies.plot}            
+              </Card.Text>
+              <Button href="google.com" variant="primary">Reviews</Button>
+            </Card.Body>
+          </Card>
+          <div
+          className="modal show" style={styles.modalStyles}>
+            {/* Need to generate the modal in the middle of the page when the Review Button is pressed */}
+        </div>
+          </section>
+              }
         </CardColumns>
       </Container>
     </>
