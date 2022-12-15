@@ -47,23 +47,23 @@ const SearchMovies = () => {
     }
   };
 
-  const handleSaveMovie = async (movieId) => {
-    const movieToSave = searchedMovies.find((movie) => movie.movieId === movieId);
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+  // const handleSaveMovie = async (movieId) => {
+  //   const movieToSave = searchedMovies.find((movie) => movie.movieId === movieId);
+  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-    if (!token)
-      return false;
+  //   if (!token)
+  //     return false;
 
-    try {
+  //   try {
 
-      const { data } = await saveMovie({ variables: { newMovie: { ...movieToSave } }, });
+  //     const { data } = await saveMovie({ variables: { newMovie: { ...movieToSave } }, });
 
-      setSavedMovieIds([...savedMovieIds, movieToSave.movieId]);
-    } catch (err) {
-      console.error(err);
-    }
+  //     setSavedMovieIds([...savedMovieIds, movieToSave.movieId]);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
 
-  };
+  // };
 
   const styles = {
     cardStyles: {
