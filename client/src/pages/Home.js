@@ -52,6 +52,7 @@ const Home = () => {
       })
     setSearchInput('');
     setReviewInput('');
+    setReview(true);
   };
 
   const handleReviewSubmit = (event) => {
