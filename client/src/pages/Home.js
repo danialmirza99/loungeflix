@@ -23,7 +23,13 @@ const styles = {
     height: 'auto',
     marginBottom: '10px',
     marginTop: '10px'
-  }
+  },
+  linkFont: {
+    margin: '10px',
+    marginTop: '200px',
+    color: 'goldenrod',
+    textShadow: '2px 2px 1px black, 0 0 25px maroon, 0 0 5px darkblue',
+  },
 }
 
 const Home = () => {
@@ -93,7 +99,7 @@ const Home = () => {
                     <Card.Text>
                       Plot: {searchedMovies.plot}
                     </Card.Text>
-                    <Button href='google.com' variant='primary'>Reviews</Button>
+                    <Button href='reviews' variant='primary' style={styles.linkFont}>Reviews</Button>
                   </Card.Body>
                 </Card>
                 <div
