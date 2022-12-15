@@ -93,7 +93,7 @@ const Home = () => {
                     <Card.Text>
                       Plot: {searchedMovies.plot}
                     </Card.Text>
-                    <Button href='google.com' variant='primary'>Reviews</Button>
+                    <Button href='reviews' variant='primary'>Reviews</Button>
                   </Card.Body>
                 </Card>
                 <div
