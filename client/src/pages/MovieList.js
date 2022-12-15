@@ -5,14 +5,14 @@ import SummerNight from '../assets/images/SummerNight.jpg'
 const styles = {
   movieListStyles: {
     background: `url(${SummerNight})`,
-    height: "900px",
-    marginTop: "-16px",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
+    height: '900px',
+    marginTop: '-16px',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
   },
   textStyle: {
-    color: "gold",
-    textShadow: "2px 2px 1px black, 0 0 25px maroon, 0 0 5px darkblue"
+    color: 'gold',
+    textShadow: '2px 2px 1px black, 0 0 25px maroon, 0 0 5px darkblue'
   },
 }
 
