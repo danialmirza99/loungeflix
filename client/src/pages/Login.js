@@ -14,8 +14,8 @@ import Makima from '../assets/images/Makima.jpg'
 const styles = {
   logInStyles: {
     background: `url(${Makima})`,
-    height: "900px",
-    backgroundSize: "cover",
+    height: '900px',
+    backgroundSize: 'cover',
   }
 }
 
@@ -56,21 +56,21 @@ const Login = (props) => {
   return (
     <section style={styles.logInStyles} >
       <Form onSubmit={handleFormSubmit}>
-        <FormGroup controlId="formBasicEmail">
+        <FormGroup controlId='formBasicEmail'>
           <Col >
             Email
           </Col>
           <Col sm={10}>
-            <FormControl type="email" placeholder="Email" value={formState.email} name='email' onChange={handleChange} />
+            <FormControl type='email' placeholder='Email' value={formState.email} name='email' onChange={handleChange} />
           </Col>
         </FormGroup>
 
-        <FormGroup controlId="formBasicPassword">
+        <FormGroup controlId='formBasicPassword'>
           <Col >
             Password
           </Col>
           <Col sm={10}>
-            <FormControl type="password" placeholder="Password" value={formState.password} name='password' onChange={handleChange} />
+            <FormControl type='password' placeholder='Password' value={formState.password} name='password' onChange={handleChange} />
           </Col>
         </FormGroup>
         <Button type='submit'>

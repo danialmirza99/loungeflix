@@ -35,7 +35,8 @@ const styles = {
 const Home = () => {
   const [searchedMovies, setSearchedMovies] = useState({});
   const [searchInput, setSearchInput] = useState('');
-
+  console.log(searchInput)
+  console.log(searchedMovies)
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -43,11 +44,10 @@ const Home = () => {
       return false;
 
     fetch(`http://www.omdbapi.com/?t=${searchInput}&apikey=c4e6157a`)
-      .then(res => res.json())
-      .then((result) => {
+      .then(result => result.json())
+      .then(result => {
         setSearchedMovies({ title: result.Title, actors: result.Actors, plot: result.Plot, poster: result.Poster })
       })
-
     setSearchInput('');
   };
 
@@ -81,13 +81,13 @@ const Home = () => {
 
         <Container>
           <h2>
-            {searchedMovies.movie
-              ? `Viewing ${searchedMovies.length} results:`
+            {searchedMovies.title
+              ? `Viewing results for ${searchedMovies.title}`
               : 'Search for a movie to begin'}
           </h2>
           <CardColumns>
-            {searchedMovies.movie
-              ? 'No movie exists'
+            {!searchedMovies.title
+              ? ''
               : <section>
                 <Card style={styles.cardStyles}>
                   <Card.Img variant='top' src={searchedMovies.poster} style={styles.imgStyle} />

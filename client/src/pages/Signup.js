@@ -14,9 +14,9 @@ import Matsuno from '../assets/images/Matsuno.jpg'
 const styles = {
   signUpStyles: {
     background: `url(${Matsuno})`,
-    height: "900px",
-    filter: "brightness(0.8)",
-    backgroundSize: "cover",
+    height: '900px',
+    filter: 'brightness(0.8)',
+    backgroundSize: 'cover',
   }
 }
 const Signup = () => {
@@ -53,42 +53,42 @@ const Signup = () => {
   return (
     <section style={styles.signUpStyles}>
       <Form onSubmit={handleFormSubmit}>
-        <Form.Group controlId="formBasicUsername">
+        <Form.Group controlId='formBasicUsername'>
           <Col >
             Username
           </Col>
           <Col sm={10}>
             <Form.Control
-              type="username"
-              placeholder="Username"
+              type='username'
+              placeholder='Username'
               value={formState.username}
               name='username'
               onChange={handleChange} />
           </Col>
         </Form.Group>
 
-        <Form.Group controlId="formBasicEmail">
+        <Form.Group controlId='formBasicEmail'>
           <Col >
             Email
           </Col>
           <Col sm={10}>
             <Form.Control
-              type="email"
-              placeholder="Email"
+              type='email'
+              placeholder='Email'
               name='email'
               value={formState.email}
               onChange={handleChange} />
           </Col>
         </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
+        <Form.Group controlId='formBasicPassword'>
           <Col >
             Password
           </Col>
           <Col sm={10}>
             <Form.Control
-              type="password"
-              placeholder="Password"
+              type='password'
+              placeholder='Password'
               name='password'
               value={formState.password}
               onChange={handleChange} />

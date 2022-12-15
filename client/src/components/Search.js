@@ -67,18 +67,18 @@ const SearchMovies = () => {
 
   const styles = {
     cardStyles: {
-      width: "350px",
-      margin: "100px",
-      borderStyle: "solid",
-      borderColor: "red",
-      textAlign: "center",
-      marginBottom: "10px",
+      width: '350px',
+      margin: '100px',
+      borderStyle: 'solid',
+      borderColor: 'red',
+      textAlign: 'center',
+      marginBottom: '10px',
     },
     imgStyle: {
-      maxWidth: "50%",
-      height: "auto",
-      marginBottom: "10px",
-      marginTop: "10px"
+      maxWidth: '50%',
+      height: 'auto',
+      marginBottom: '10px',
+      marginTop: '10px'
     }
   }
 
@@ -120,7 +120,7 @@ const SearchMovies = () => {
             ? 'No movie exists'
             : <section>
               <Card style={styles.cardStyles}>
-                <Card.Img variant="top" src={searchedMovies.poster} style={styles.imgStyle} />
+                <Card.Img variant='top' src={searchedMovies.poster} style={styles.imgStyle} />
                 <Card.Body>
                   <Card.Title>{searchedMovies.title}</Card.Title>
                   <Card.Text>
@@ -129,11 +129,11 @@ const SearchMovies = () => {
                   <Card.Text>
                     Plot: {searchedMovies.plot}
                   </Card.Text>
-                  <Button href="google.com" variant="primary">Reviews</Button>
+                  <Button href='google.com' variant='primary'>Reviews</Button>
                 </Card.Body>
               </Card>
               <div
-                className="modal show" style={styles.modalStyles}>
+                className='modal show' style={styles.modalStyles}>
                 {/* Need to generate the modal in the middle of the page when the Review Button is pressed */}
               </div>
             </section>
