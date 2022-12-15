@@ -1,11 +1,4 @@
-// import React, { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
-// import { useQuery } from '@apollo/client';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns, } from 'react-bootstrap';
-import Movie from '../utils/api';
-// import Auth from '../utils/auth';
-// import { useMutation } from '@apollo/client';
-// import { getMovie } from '../utils/api';
 import SummerNight from '../assets/images/SummerNight.jpg'
 
 

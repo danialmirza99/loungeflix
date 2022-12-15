@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
@@ -8,9 +7,10 @@ import {
   Form,
   Col,
   Button
-  //ControlLabel
 } from 'react-bootstrap';
+
 import Matsuno from '../assets/images/Matsuno.jpg'
+
 const styles = {
   signUpStyles: {
     background: `url(${Matsuno})`,
@@ -52,7 +52,6 @@ const Signup = () => {
 
   return (
     <section style={styles.signUpStyles}>
-
       <Form onSubmit={handleFormSubmit}>
         <Form.Group controlId="formBasicUsername">
           <Col >

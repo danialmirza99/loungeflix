@@ -1,10 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-//import { Api } from '../utils/api'
 import Logo from '../assets/images/Lounge_Flix_Logo.jpg'
-//import SignUpForm from './SignupForm';
-//import LoginForm from './LoginForm';
 
 import Auth from '../utils/auth';
 
@@ -27,7 +24,6 @@ const MovieNavbar = () => {
   };
   return (
     <section>
-
       <Navbar bg='primary' variant='dark' expand='lg'>
         <Container fluid>
           <Nav className='ml-auto' style={styles.navbarStyle}>
