@@ -16,6 +16,10 @@ const styles = {
     background: `url(${Makima})`,
     height: '900px',
     backgroundSize: 'cover',
+  },
+  formStyles:{
+    display: 'flex',
+    justifyContent: 'center',
   }
 }
 
@@ -55,7 +59,7 @@ const Login = (props) => {
 
   return (
     <section style={styles.logInStyles} >
-      <Form onSubmit={handleFormSubmit}>
+      <Form style = {styles.formStyles} onSubmit={handleFormSubmit}>
         <FormGroup controlId='formBasicEmail'>
           <Col >
             Email
