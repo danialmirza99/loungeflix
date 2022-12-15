@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom';
 // import { useQuery } from '@apollo/client';
 // import { test } from '../utils/api';
-import MovieCard from '../components/Movie';
+import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import SavedMovies from '../components/Movie';
+import SearchMovies from '../components/Search';
 
 import Auth from '../utils/auth';
 import { saveMovie, searchMovies } from '../utils/api';
@@ -136,7 +139,7 @@ const Home = () => {
   return (
     <section style={styles.sectionStyles}>
       <Jumbotron fluid className='text-light bg-dark'>
-        <Container>
+        {/* <Container>
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
               <Col xs={12} md={8}>
@@ -151,39 +154,14 @@ const Home = () => {
               </Col>
             </Form.Row>
           </Form>
-        </Container>
-        <MovieCard />
+        </Container> */}
+        <SearchMovies />
+        {/* <SavedMovies /> */}
       </Jumbotron>
 
-      <Container>
-        {/*<ul>{items.map(item => <li> {item}</li>)}</ul>*/}
-        <CardColumns>
-          {searchedMovies.map((movie) => {
-            return (
-              <Card key={movie.Title} border='dark'>
-                {movie.Poster ? (
-                  <Card.Img src={movie.Poster} alt={`The cover for ${movie.Title}`} variant='top' />
-                ) : null}
-                <Card.Body>
-                  <Card.Title>{movie.Title}</Card.Title>
-                  <p className='small'>Actors: {movie.Actors}</p>
-                  <Card.Text>{movie.Plot}</Card.Text>
-                  {Auth.loggedIn() && (
-                    <Button
-                      disabled={savedMovieIds?.some((savedMovieId) => savedMovieId === movie.Title)}
-                      className='btn-block btn-info'
-                      onClick={() => handleSaveMovie(movie.Title)}>
-                      {savedMovieIds?.some((savedMovieId) => savedMovieId === movie.Title)
-                        ? 'This movie has already been saved!'
-                        : 'Save this Movie!'}
-                    </Button>
-                  )}
-                </Card.Body>
-              </Card>
-            );
-          })}
-        </CardColumns>
-      </Container>
+      {/* <Container>
+        <ul>{items.map(item => <li> {item}</li>)}</ul>
+      </Container> */}
     </section>
   );
 };

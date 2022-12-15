@@ -6,12 +6,17 @@ const movieSchema = new Schema({
         required: true,
         trim: true
     },
-    genre:{
+    plot:{
         type: String,
         required: true,
         trim: true
     },
-    description:{
+    actors:{
+        type: String,
+        required: true,
+        trim: true
+    },
+    poster:{
         type: String,
         required: true,
         trim: true
