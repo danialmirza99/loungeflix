@@ -17,6 +17,10 @@ const styles = {
     height: '900px',
     filter: 'brightness(0.8)',
     backgroundSize: 'cover',
+  },
+  formStyles:{
+    display: 'flex',
+    justifyContent: 'center',
   }
 }
 const Signup = () => {
@@ -53,7 +57,7 @@ const Signup = () => {
   return (
     <section style={styles.signUpStyles}>
       <Form onSubmit={handleFormSubmit}>
-        <Form.Group controlId='formBasicUsername'>
+        <Form.Group style = {styles.formStyles} controlId='formBasicUsername'>
           <Col >
             Username
           </Col>
@@ -67,7 +71,7 @@ const Signup = () => {
           </Col>
         </Form.Group>
 
-        <Form.Group controlId='formBasicEmail'>
+        <Form.Group style = {styles.formStyles} controlId='formBasicEmail'>
           <Col >
             Email
           </Col>
@@ -81,7 +85,7 @@ const Signup = () => {
           </Col>
         </Form.Group>
 
-        <Form.Group controlId='formBasicPassword'>
+        <Form.Group style = {styles.formStyles} controlId='formBasicPassword'>
           <Col >
             Password
           </Col>
